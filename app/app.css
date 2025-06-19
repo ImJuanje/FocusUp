@@ -1,0 +1,416 @@
+:root {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --accent: #3a86ff;
+    --accent-dark: #265df2;
+    --btn-bg: #1e1e1e;
+    --btn-hover: #2a2a2a;
+    --premium-color: #ff9f43;
+  }
+  
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .app-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    min-height: 100vh;
+  }
+  
+  .container, .main-container {
+    max-width: 600px;
+    width: 100%;
+    background-color: #1c1c1c;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    padding: 1rem 2rem;
+  }
+  
+  h1 {
+    text-align: center;
+    color: var(--accent);
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .subtitle {
+    text-align: center;
+    color: #aaa;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Timer */
+  .timer-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    flex: 1;
+    max-width: 600px;
+  }
+  
+  #timer {
+    margin: 0 1rem;
+    font-weight: bold;
+  }
+  
+  .control-btn {
+    background-color: var(--btn-bg);
+    color: var(--text-color);
+    border: none;
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .control-btn:hover {
+    background-color: var(--btn-hover);
+  }
+  
+  .quick-times {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .time-btn {
+    padding: 0.5rem 1rem;
+    background-color: var(--accent);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.1s;
+  }
+  
+  .time-btn:active {
+    transform: scale(0.95);
+  }
+  
+  .play-pause {
+    display: block;
+    margin: 0 auto 1.5rem auto;
+    font-size: 1.1rem;
+  }
+  
+  .input-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  input, textarea, select {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 6px;
+    background: #2a2a2a;
+    color: var(--text-color);
+    resize: none;
+  }
+  
+  .btn {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+  }
+  
+  .btn:hover {
+    background-color: var(--accent-dark);
+  }
+  
+  #log-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 1rem 0;
+  }
+  
+  .log-item {
+    background: #222;
+    padding: 0.5rem;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .edit-btn, .delete-btn {
+    margin-left: 0.5rem;
+    background: none;
+    border: none;
+    color: #ccc;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .edit-btn:hover, .delete-btn:hover {
+    color: var(--accent);
+  }
+  
+  .edit-input {
+    width: 100%;
+    padding: 0.25rem;
+    background: #333;
+    color: #fff;
+    border: 1px solid #555;
+    border-radius: 4px;
+    margin-bottom: 0.25rem;
+  }
+  
+  .upgrade-toast {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #3a86ff;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 9999;
+    max-width: 90%;
+    text-align: center;
+    line-height: 1.4;
+  }
+  
+  .upgrade-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+  
+  /* Botón volver */
+  #back-btn {
+    background: var(--accent);
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  #back-btn:hover {
+    background: var(--accent-dark);
+  }
+  
+  /* Calendario */
+  .calendar-promo {
+    width: 100%;
+    background: #1e1e1e;
+    border-radius: 10px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    max-width: 350px;
+  }
+  
+  .calendar-placeholder {
+    filter: blur(2px);
+    opacity: 0.7;
+    pointer-events: none;
+  }
+  
+  .premium-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(30, 30, 30, 0.85);
+    z-index: 10;
+    padding: 2rem;
+    text-align: center;
+    border-radius: inherit;
+  }
+  
+  .lock-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--premium-color);
+  }
+  
+  .premium-overlay h3 {
+    color: var(--premium-color);
+    margin-bottom: 0.5rem;
+  }
+  
+  .premium-overlay p {
+    margin-bottom: 1.5rem;
+    color: #aaa;
+  }
+  
+  .premium-btn {
+    background: var(--premium-color);
+    color: #121212;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .premium-btn:hover {
+    background: #ffb347;
+    transform: translateY(-2px);
+  }
+  
+  .calendar-header {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .day-header {
+    text-align: center;
+    font-weight: bold;
+    color: #aaa;
+    padding: 0.5rem 0;
+  }
+  
+  .day {
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 4px;
+    background: #2a2a2a;
+  }
+  
+  .day.empty {
+    background: transparent;
+  }
+  
+  .day.active {
+    background: var(--accent);
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* Todo List */
+  .todo-section {
+    position: relative;
+    max-width: 350px;
+    margin: 0 0;
+    background-color: #1e1e1e;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    color: #fff;
+    min-height: 300px;
+    width: 100%;
+  }
+  
+  .todo-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .todo-input-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .todo-input-group input {
+    flex: 1;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #2a2a2a;
+    color: #ccc;
+  }
+  
+  .todo-input-group button {
+    padding: 0.6rem 1rem;
+    background-color: #3b82f6;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .todo-input-group input:disabled,
+  .todo-input-group button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .premium-overlay-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  
+  .todo-disabled-content {
+    opacity: 0.3;
+    pointer-events: none;
+    user-select: none;
+  }
+  
+  /* Layout responsive */
+  .side-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  @media (max-width: 900px) {
+    .app-wrapper {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1rem;
+    }
+  
+    .calendar-promo,
+    .todo-section,
+    .container,
+    .main-container {
+      width: 100%;
+      max-width: 600px;
+      padding: 1rem;
+    }
+  }
+  

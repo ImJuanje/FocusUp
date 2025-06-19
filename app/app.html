@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FocusUp - Tu jornada</title>
+  <link rel="stylesheet" href="app.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <section class="app-wrapper">
+        <div class="container">
+            <a href="../index.html"><button id="back-btn" title="Volver al inicio">← Inicio</button></a>
+            <h1>🧠 FocusUp</h1>
+            <p class="subtitle">Domina tu enfoque diario</p>
+
+            <div class="timer-section">
+            <button class="control-btn" id="decrease-time">−</button>
+            <div id="timer">25:00</div>
+            <button class="control-btn" id="increase-time">+</button>
+            </div>
+
+            <div class="quick-times">
+            <button class="time-btn" data-min="15">15m</button>
+            <button class="time-btn" data-min="25">25m</button>
+            <button class="time-btn" data-min="45">45m</button>
+            </div>
+
+            <button id="start-pause" class="btn play-pause">▶ Iniciar</button>
+
+            <div class="input-group">
+            <input type="text" id="log-input" placeholder="Escribe un logro o tarea" />
+            <button id="save-log" class="btn">Guardar logro</button>
+            </div>
+
+            <ul id="log-list"></ul>
+
+            <select id="state-select">
+            <option disabled selected>¿Cómo te sentiste hoy?</option>
+            <option value="😐 Normal">😐 Normal</option>
+            <option value="🚧 Disperso">🚧 Disperso</option>
+            <option value="🌟 Inspirado">🌟 Inspirado</option>
+            <option value="🔥 Productivo">🔥 Productivo</option>
+            <option value="😴 Cansado">😴 Cansado</option>
+            <option value="🤯 Abrumado">🤯 Abrumado</option>
+            </select>
+
+            <textarea style="margin-top:30px" id="day-summary" placeholder="¿Cómo fue tu jornada?" rows="4"></textarea>
+
+            <button id="download-log" style="margin-top: 30px;" class="btn">📥 Exportar resumen</button>
+
+            <div id="export-content" style="display: none;"></div>
+        </div>
+
+        <div class="side-sections">
+            <div class="calendar-promo">
+                <div class="premium-overlay">
+                    <div class="lock-icon">🔒</div>
+                    <h3>Historial Completo</h3>
+                    <p>Desbloquea todos tus registros pasados con la versión Premium</p>
+                    <button class="premium-btn">¡Quiero Premium!</button>
+                    
+                </div>
+                <div class="calendar-placeholder">
+                    <div class="calendar-header">
+                        <h3>Junio 2025</h3>
+                    </div>
+                    <div class="calendar-grid">
+                        <div class="day-header">L</div>
+                        <div class="day-header">M</div>
+                        <div class="day-header">X</div>
+                        <div class="day-header">J</div>
+                        <div class="day-header">V</div>
+                        <div class="day-header">S</div>
+                        <div class="day-header">D</div>
+                        
+                        <!-- Días del calendario -->
+                        <div class="day empty"></div>
+                        <div class="day empty"></div>
+                        <div class="day">1</div>
+                        <div class="day">2</div>
+                        <div class="day">3</div>
+                        <div class="day">4</div>
+                        <div class="day">5</div>
+                        <div class="day">6</div>
+                        <div class="day">7</div>
+                        <div class="day">8</div>
+                        <div class="day">9</div>
+                        <div class="day">10</div>
+                        <div class="day">11</div>
+                        <div class="day">12</div>
+                        <div class="day">13</div>
+                        <div class="day">14</div>
+                        <div class="day">15</div>
+                        <div class="day">16</div>
+                        <div class="day">17</div>
+                        <div class="day">18</div>
+                        <div class="day active">19</div>
+                        <div class="day">20</div>
+                        <div class="day">21</div>
+                        <div class="day">22</div>
+                        <div class="day">23</div>
+                        <div class="day">24</div>
+                        <div class="day">25</div>
+                        <div class="day">26</div>
+                        <div class="day">27</div>
+                        <div class="day">28</div>
+                        <div class="day">29</div>
+                        <div class="day">30</div>
+                    </div>
+                </div>   
+            </div>
+            <div>
+                <div class="todo-section premium-overlay-wrapper">
+                    <div class="premium-overlay">
+                      <div class="lock-icon">🔒</div>
+                      <h3>Lista de Tareas</h3>
+                      <p>Disponible en la versión Premium</p>
+                      <button class="premium-btn">¡Quiero Premium!</button>
+                    </div>
+                    <div class="todo-disabled-content">
+                      <h3>📝 Lista de Tareas</h3>
+                      <div class="todo-input-group">
+                        <input type="text" id="todo-input" placeholder="Nueva tarea..." disabled />
+                        <button id="add-todo" class="btn" disabled>Añadir</button>
+                      </div>
+                      <ul id="todo-list" class="disabled-list"></ul>
+                    </div>
+                  </div>
+                  
+            </div>
+        </div>
+
+        
+
+        
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
